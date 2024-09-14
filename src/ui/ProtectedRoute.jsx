@@ -13,16 +13,15 @@ function ProtectedRoute({ children }) {
     align-items: center;
     justify-content: center;
   `;
-
   const { isLoading, isAuthenticated } = useUser();
-
   useEffect(
     function () {
-      if (!isAuthenticated && !isLoading) navigate("/login");
+      if (!isAuthenticated && !isLoading) {
+        navigate("/");
+      }
     },
     [isAuthenticated, navigate, isLoading]
   );
-
   if (isLoading)
     return (
       <FullPage>

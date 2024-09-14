@@ -99,13 +99,29 @@ const GlobalStyles = createGlobalStyle`
   
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-grey-400);
+  border-radius: 10px;
+}
+
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
   /* Creating animations for dark mode */
   transition: background-color 0.3s , border 0.3s;
 }
