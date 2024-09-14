@@ -1,4 +1,7 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
+import GlobalStyles from "../styles/GlobalStyles";
+import Button from "./Button";
 
 const StyledErrorFallback = styled.main`
   height: 100vh;
@@ -6,7 +9,6 @@ const StyledErrorFallback = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4.8rem;
 `;
 
 const Box = styled.div`
@@ -15,7 +17,7 @@ const Box = styled.div`
   border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
 
-  padding: 4.8rem;
+  padding: 1.8rem;
   flex: 0 1 96rem;
   text-align: center;
 
@@ -29,3 +31,20 @@ const Box = styled.div`
     color: var(--color-grey-500);
   }
 `;
+
+function ErrorFallback({ error , resetErrorBoundary }) {
+  return (
+    <>
+      <GlobalStyles />
+      <StyledErrorFallback>
+        <Box>
+          <h1>Something went wrong</h1>
+          <p>{error.message}</p>
+        <Button size='large' onClick={resetErrorBoundary}>Try Again</Button>
+        </Box>
+      </StyledErrorFallback>
+    </>
+  );
+}
+
+export default ErrorFallback;
